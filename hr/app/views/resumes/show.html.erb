@@ -1,5 +1,71 @@
 <p id="notice"><%= notice %></p>
 
+<style>
+  #skillsForm {
+    display:none;
+  }
+  #languagesForm {
+    display:none;
+  }
+  .alignButton {
+    float: right;
+  }
+  .alignTitle {
+    float: left;
+  }
+  .alignRender {
+    clear:both;
+  }
+  .formatButton {
+    border: thin solid white;
+    padding:5px;
+    border-radius:50px;
+  }
+  .formatButton:hover {
+    background-color: #a6bfbf;
+  }
+  
+</style>
+
+<script>
+  function displaySkillsForm(){
+    // toggle button to display form on and off to show form to add skills
+    if(skillsForm.style.display == 'block'){
+      // if form is displayed change its display to none
+      skillsForm.style.display = 'none'
+      // alter button to show minus sign
+      $("#skillsButton").toggleClass("fa fa-minus fa-fw w3-margin-center w3-text-teal fa fa-plus fa-fw w3-margin-center w3-text-teal");
+      
+    }
+    else{
+      // if form is not displayed change its display to block
+      skillsForm.style.display ='block'
+      // alter button to show plus sign
+      $("#skillsButton").toggleClass("fa fa-minus fa-fw w3-margin-center w3-text-teal fa fa-plus fa-fw w3-margin-center w3-text-teal");
+    }
+  }
+  
+  // LANGUAGES follows same syntax pattern as above ^^
+  function displayLanguagesForm(){
+    // toggle button to display form on and off to show form to add skills
+    if(languagesForm.style.display == 'block'){
+      // if form is displayed change its display to none
+      languagesForm.style.display = 'none'
+      // alter button to show minus sign
+      $("#languagesButton").toggleClass("fa fa-minus fa-fw w3-margin-center w3-text-teal fa fa-plus fa-fw w3-margin-center w3-text-teal");
+      
+    }
+    else{
+      // if form is not displayed change its display to block
+      languagesForm.style.display ='block'
+      // alte button to show plus sign
+      $("#languagesButton").toggleClass("fa fa-minus fa-fw w3-margin-center w3-text-teal fa fa-plus fa-fw w3-margin-center w3-text-teal");
+    }
+  }
+  
+  
+</script>
+
 <%= link_to 'Edit', edit_resume_path(@resume) %> |
 <%= link_to 'Back', resumes_path %>
 
@@ -18,18 +84,22 @@
           <hr>
   
           <!-- SkILLS -->
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <%= render @resume.skills %>
-    
-          <p class="w3-medium"><b><i class="fa fa-plus fa-fw w3-margin-right w3-text-teal"></i>Add Skills</b></p>
-          <%= render 'skills/form' %>
-          <br>
-
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
-          <%= render @resume.languages %>
-        
-          <p class="w3-medium"><b><i class="fa fa-plus fa-fw w3-margin-right w3-text-teal"></i>Add Languages</b></p>
-          <%= render 'languages/form' %>
+          <p class="w3-large alignTitle"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p class ="alignButton"><button class="formatButton", onClick ="displaySkillsForm()"><i id = "skillsButton", class="fa fa-plus fa-fw w3-margin-center w3-text-teal"></i></button></p>
+          
+          <p class = "alignRender"><%= render @resume.skills %></p>
+          <div id="skillsForm">
+            <%= render 'skills/form' %>
+          </div>
+          <hr>
+        <!-- LANGUAGES -->
+          <p class="w3-large alignTitle"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p class ="alignButton"><button class="formatButton", onClick ="displayLanguagesForm()"><i id = "languagesButton", class="fa fa-plus fa-fw w3-margin-center w3-text-teal"></i></button></p>
+          
+          <p class = "alignRender"><%= render @resume.languages %></p>
+          <div id="languagesForm">
+            <%= render 'languages/form' %>
+          </div>
           <br>
         </div>
       </div><br>
