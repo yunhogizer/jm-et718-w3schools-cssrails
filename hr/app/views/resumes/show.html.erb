@@ -7,6 +7,9 @@
   #languagesForm {
     display:none;
   }
+  #wexperiencesForm{
+    display:none;
+  }
   .alignButton {
     float: right;
   }
@@ -63,6 +66,23 @@
     }
   }
   
+  // WORK EXPERIENCES follows same syntax pattern as above
+  function displayWExperiencesForm(){
+    // toggle button to display form on and off to show form to add skills
+    if(wexperiencesForm.style.display == 'block'){
+      // if form is displayed change its display to none
+      wexperiencesForm.style.display = 'none'
+      // alter button to show minus sign
+      $("#wexperiencesButton").toggleClass("fa fa-minus fa-fw w3-margin-center w3-text-teal fa fa-plus fa-fw w3-margin-center w3-text-teal");
+      
+    }
+    else{
+      // if form is not displayed change its display to block
+      wexperiencesForm.style.display ='block'
+      // alte button to show plus sign
+      $("#wexperiencesButton").toggleClass("fa fa-minus fa-fw w3-margin-center w3-text-teal fa fa-plus fa-fw w3-margin-center w3-text-teal");
+    }
+  }  
   
 </script>
 
@@ -110,13 +130,17 @@
     <br>
     <!-- Right Column -->
     <div class="w3-twothird">
+      
+      <!-- WORK EXPERIENCES -->
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
-          <%= render @resume.work_experiences %>
+        <h2 class="w3-text-grey w3-padding-16 alignTitle"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <p class ="alignButton"><button class="formatButton", onClick ="displayWExperiencesForm()"><i id = "wexperiencesButton", class="fa fa-plus fa-fw w3-margin-center w3-text-teal"></i></button></p>
+        <p class="alignRender"><%= render @resume.work_experiences %></p>
         
-          <p class="w3-medium"><b><i class="fa fa-plus fa-fw w3-margin-right w3-text-teal"></i>Add an Experience</b></p>
+        <div id="wexperiencesForm">  
           <%= render 'work_experiences/form' %>
+        </div>
       </div>
 
       <div class="w3-container w3-card w3-white">
