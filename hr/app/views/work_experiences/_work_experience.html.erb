@@ -1,0 +1,12 @@
+<div class="w3-container">
+  <h5 class="w3-opacity"><b><%= work_experience.experience %> / <%= work_experience.source %></b></h5>
+  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= work_experience.duration %></h6>
+  <p><%= work_experience.description %></p>
+  
+<p>
+  <%= link_to 'Destroy', [work_experience.resume, work_experience],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+  <hr>
+</div>

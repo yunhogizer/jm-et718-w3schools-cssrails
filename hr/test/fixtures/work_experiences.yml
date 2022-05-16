@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  experience: MyString
+  duration: MyString
+  description: MyText
+  resume: one
+
+two:
+  experience: MyString
+  duration: MyString
+  description: MyText
+  resume: two
