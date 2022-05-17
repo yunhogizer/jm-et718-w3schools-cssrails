@@ -1,6 +1,24 @@
+<script>
+  window.onload = formatEndDate()
+  function formatEndDate(){
+    var endDate = document.getElementById("endDate")
+    if(endDate.textContent.includes("Current") && endDate.className == "w3-text-teal" ) {
+      $("#endDate").toggleClass("w3-tag w3-teal w3-round w3-text-teal")
+    }
+    else{
+      
+    }
+    
+    
+  }
+  
+
+
+</script>
+
 <div class="w3-container">
   <h5 class="w3-opacity"><b><%= work_experience.experience %> / <%= work_experience.source %></b></h5>
-  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= work_experience.startdate %> - <%= work_experience.enddate %></h6>
+  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= work_experience.startdate %> - <span id ="endDate" class ="w3-text-teal" ><%= work_experience.enddate %></span></h6>
   <p><%= work_experience.description %></p>
   
 <p>
