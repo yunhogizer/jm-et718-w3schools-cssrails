@@ -2,3 +2,9 @@
   <div class="w3-light-grey w3-round-xlarge">
     <div class="w3-round-xlarge w3-teal" style="height:24px;width:<%= language.level %>%"></div>
   </div>
+  
+  <p>
+  <%= link_to 'Remove', [language.resume, language],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

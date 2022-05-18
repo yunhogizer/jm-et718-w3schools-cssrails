@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :skills
     resources :languages
     resources :work_experiences
+    resources :educations
   end
   
   root 'welcome#index'
