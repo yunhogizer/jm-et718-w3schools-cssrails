@@ -2,10 +2,10 @@
   <h5 class="w3-opacity"><b><%= education.school %></b></h5>
   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= education.startdate %> / <%= education.enddate %></h6>
   <p><%= education.description %></p>
+  <p>
+    <%= link_to 'Remove', [education.resume, education],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
   <hr>
-<p>
-  <%= link_to 'Remove', [education.resume, education],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
 </div>
