@@ -1,4 +1,5 @@
 class EducationsController < ApplicationController
+http_basic_authenticate_with name: "user", password: "password123", only: :destroy
   def create
     @resume = Resume.find(params[:resume_id])
     @education = @resume.educations.create(education_params)

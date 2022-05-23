@@ -1,5 +1,7 @@
 class ResumesController < ApplicationController
   before_action :set_resume, only: %i[ show edit update destroy ]
+  
+  http_basic_authenticate_with name: "user", password: "password123", except: [:index, :show]
 
   # GET /resumes or /resumes.json
   def index
